@@ -9,11 +9,20 @@ class MoviesController < ApplicationController
   def index
     # byebug
     @all_ratings = Movie.all_ratings
-    @ratings_to_show = []
+    @ratings_to_show = [] #|| params[:ratings].keys
     if params[:ratings] != nil
       @ratings_to_show = params[:ratings].keys
     end
-    @movies = Movie.with_ratings(@ratings_to_show)
+    @sort_by = params[:sort_by]
+    @sort_type = params[:sort_type]
+
+    # @movies = Movie.with_ratings(@ratings_to_show)
+    if params[:ratings_to_show] != nil
+      # byebug
+      @ratings_to_show = params[:ratings_to_show].delete('["" ]').split(",")
+    end
+    # byebug
+    @movies = Movie.with_ratings(@ratings_to_show).order("#{@sort_by} #{@sort_type}")
   end
 
   def new
