@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  has_many :reviews
+  
   def self.all_ratings
     select('DISTINCT rating').map(&:rating).sort #order('rating ASC')
   end

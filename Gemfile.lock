@@ -65,6 +65,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    hashie (4.1.0)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
@@ -94,6 +95,16 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oauth (0.5.5)
+    omniauth (1.9.1)
+      hashie (>= 3.4.6)
+      rack (>= 1.6.2, < 3)
+    omniauth-oauth (1.2.0)
+      oauth
+      omniauth (>= 1.0, < 3)
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
     pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -198,6 +209,8 @@ DEPENDENCIES
   byebug
   guard-rspec
   jquery-rails
+  omniauth (~> 1.9.1)
+  omniauth-twitter
   pg (~> 0.21)
   rails (= 4.2.11.3)
   rails_12factor
